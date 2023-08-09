@@ -1,0 +1,45 @@
+basePath: /
+definitions:
+  models.UserModel:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: fiber@swagger.io
+    name: API Support
+  description: Golang GoFiber swagger auto generate step by step by swaggo
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: GoFiber Example API
+  version: "1.0"
+paths:
+  /user/create:
+    post:
+      consumes:
+        - application/json
+      description: Create a new user with the input payload
+      parameters:
+        - description: UserModel
+          in: body
+          name: payload
+          required: true
+          schema:
+            $ref: '#/definitions/models.UserModel'
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: Create a new user
+      tags:
+        - users
+swagger: "2.0"
